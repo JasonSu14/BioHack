@@ -5,7 +5,12 @@ import database
 newName = input("Enter a new drug name: ")
 Dictionary = {}
 
-for existingNames in database.databaseA:
+with open('drugNameFinal.csv', 'r') as f:
+    drugNameFinal = f.read()
+    drugNameFinal = re.split(r'\s*,\s*', drugNameFinal)
+    drugNameFinal = set(drugNameFinal)
+
+for existingNames in drugNameFinal:
     score = 0
     score += functions.similarity(existingNames, newName)
     score += functions.middleSimilarity(existingNames, newName)

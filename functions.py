@@ -4,9 +4,11 @@ import re
 syllable_regex = re.compile("[^aeiouy]*[aeiouy]+(?:[^aeiouy]*$|[^aeiouy](?=[^aeiouy]))?", re.IGNORECASE)
 
 # compare syllables without order - weight less
-def fuzzy_syllable_list(word, newName):
+def fuzzy_syllable_list(name, newName):
+    name = name.lower()
+    newName = newName.lower()
     score = 0 
-    nameSList = syllable_regex.findall(word)
+    nameSList = syllable_regex.findall(name)
     newNameSList = syllable_regex.findall(newName)
     for syllable in nameSList: # just checks if sylables are in the new name, not in order so weight less
         if syllable in newNameSList:
@@ -14,9 +16,11 @@ def fuzzy_syllable_list(word, newName):
     return score
 
 # compare syllables with order - weight more
-def syllable_list(word, newName):
+def syllable_list(name, newName):
+    name = name.lower()
+    newName = newName.lower()
     score = 0
-    nameSList = syllable_regex.findall(word)
+    nameSList = syllable_regex.findall(name)
     newNameSList = syllable_regex.findall(newName)
 
     try:

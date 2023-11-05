@@ -1,0 +1,12 @@
+/* css for the site */
+.header {
+    padding: 10px;
+}
+
+.title-bar {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: bisque;
+    color : black;
+    text-align: center;
+}
