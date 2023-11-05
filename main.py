@@ -1,6 +1,5 @@
 import re
 import functions
-import database
 
 newName = input("Enter a new drug name: ")
 Dictionary = {}
@@ -16,10 +15,10 @@ for existingNames in drugNameFinal:
     score += functions.middleSimilarity(existingNames, newName)
     score += functions.syllable_list(existingNames, newName)
     score += functions.fuzzy_syllable_list(existingNames, newName)
-    Dictionary[existingNames] = score # builds dict with score and name of drug
+    Dictionary[existingNames] = score 
 
 Dictionary = sorted(Dictionary.items(), key=lambda x: x[1], reverse=True)
-top = dict(Dictionary[:5]) # takes off the top 5 or whatever
+top = dict(Dictionary[:5]) 
 print(top)
 
 if set(newName) in ['y', 'h', 'k', 'j', 'w']:

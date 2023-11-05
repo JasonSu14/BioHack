@@ -10,7 +10,7 @@ def fuzzy_syllable_list(name, newName):
     score = 0 
     nameSList = syllable_regex.findall(name)
     newNameSList = syllable_regex.findall(newName)
-    for syllable in nameSList: # just checks if sylables are in the new name, not in order so weight less
+    for syllable in nameSList: 
         if syllable in newNameSList:
             score += 1
     return score
